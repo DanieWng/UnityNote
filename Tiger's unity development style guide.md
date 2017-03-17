@@ -50,13 +50,11 @@ pot란 가로랑 세로 길이 2의 제곱인 정사각형 이미지이다. 예 
 	
 	>format에 따라 메모리 비교: &lt;http://unching-star.hatenablog.jp/entry/2013/06/24/095510
 
-* **gradient, shadow는 가능하면 따로 빼서 유니티에서 처리** 
+* **gradient, shadow는 가능하면 따로 빼서 유니티에서 처리**
 
-	`
-	gradient:
-	1.	gradient component 추가, start color& end color 
-	2.	입력 이미지 사이즈가 크면 축소 시켜서 작은 사이즈로 9patch png처럼 적용해도 됨. 
-	`
+	_Gradient인 경우에:_
+	1.	`gradient component 추가, start color& end color 입력`
+	2.	`이미지 사이즈가 크면 축소 시켜서 작은 사이즈로 9patch png처럼 적용`
 
 * **Texture Tools**
 	1. ImageMagick</br>
