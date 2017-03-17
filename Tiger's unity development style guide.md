@@ -28,7 +28,7 @@ pot란 가로랑 세로 길이 2의 제곱인 정사각형 이미지이다. 예 
 	*	repeat:
  </br>
  
-__*Image로 repeat 적용할 경우에 백터랑 삼각형이 많이 생길 텐데 이거 raw image로 해야 함.*__ 
+	__*Image로 repeat 적용할 경우에 백터랑 삼각형이 많이 생길 텐데 이거 raw image로 해야 함.*__ 
 
 * **Render Format**
 	제가 개발때 가장 많이 쓰이는 포멧이 pvrtc, etc1, rgba16, rgba32, alpha8...
