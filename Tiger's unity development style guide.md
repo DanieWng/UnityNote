@@ -20,7 +20,9 @@ _메모리를 가장 많이 쓰는 리소소들임._
 #### Texture:
 * **size**
 * **pot & npot**
-pot란 가로랑 세로 길이 2의 제곱인 정사각형 이미지이다. 예 8x8, 16x16, 32x32, 64x64, 128x128. npot는 pot 아닌  뜻이다. pot 권장하는 이유는 PVRTC format 적용할 수 있는 점이다. 다만 유니티는 pvrtc8888 없지만  pvrtc4bits는 화질 손실 현상은 직접 디바이스에서만 체크할 수 있음. 
+pot란 가로랑 세로 길이 2의 제곱인 정사각형 이미지이다. 예 8x8, 16x16, 32x32, 64x64, 128x128. npot는 pot 아닌  뜻이다. pot 권장하는 이유는 PVRTC format 적용할 수 있는 점이다. 다만 유니티는 pvrtc8888 없지만  pvrtc4bits는 화질 손실 현상은 직접 디바이스에서만 체크할 수 있음. </br>
+pvrtc4bits 적용때 ETC1처럼 알파 채널을 따로 분리시키는 방법을 추천함.</br>
+_iOS에서 정사각형을 요구한다._
 
 * **반복되는 픽셀 처리**
  texture - wrap mode - clamp/repeat
