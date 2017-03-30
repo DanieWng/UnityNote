@@ -128,4 +128,26 @@ public class SplitAlphaWithUIImageEditor : Editor
 
 _在编辑器加载属性改变image对象的演示视频：_ <https://www.youtube.com/watch?v=m7ImpuICOio>
 
+#####在面板中显示数组或list结构数据
 
+`EditorGUILayout.PropertyField(property, true)`
+
+第二个参数必须为**true**, 不然无法正常显示子节点
+ 
+示例代码：
+
+```c sharp
+EditorGUILayout.PropertyField(m_arrayProperty, true);
+```
+
+#####OnInspector方法基本结构
+
+`SerializedObject.Update()`
+
+`EditorGUI.BeganChangeCheck()`
+
+`此处添加处理显示数据...`
+
+`EditorGUI.EndChangeCheck()`
+
+`SerializedObject.ApplyModifiedProperties()`
