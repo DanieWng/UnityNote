@@ -88,3 +88,16 @@ EditorGUI.indentLevel -= 1;
 ##GUIStyle & GUILayoutOption
 
 >GUIStyleで見た目を変えよう <http://caitsithware.com/wordpress/archives/1391>
+
+
+##Window Style
+
+```
+public static EditorWindow GetWindow(Type t, bool utility = false, string title = null, bool focus = true);
+```
+
+* `Type t` The type of the window. Must derive from EditorWindow.
+* `utility` Set this to true, to create a floating utility window, false to create a normal window.
+* `title` If GetWindow creates a new window, it will get this title. If this value is null, use the class name as title.
+* `focus` Whether to give the window focus, if it already exists. (If GetWindow creates a new window, it will always get focus).
+
