@@ -1,20 +1,16 @@
 # Unity Development Style Guide
 
-
-</br>
-</br>
-
 ##유니티 리소스 최적화
 
-*	**유니티에 대한 최적화가 크게 3가지로 나눌 수 있음:**
-	1.	메모리  
-	2. 앱 파일 크기 - (ipa, apk)
-	3. 앱 설치 필요한 하드 공간
+###유니티에 대한 최적화가 크게 3가지로 나눌 수 있음:
+1.	메모리  
+2. 앱 파일 크기 - (ipa, apk)
+3. 앱 설치 필요한 하드 공간
 
 ###메모리 소유 줄리기:
-	1. texture
-	2. audio
-	3. font
+1. texture
+2. audio
+3. font
 
 _메모리를 가장 많이 쓰는 리소소들임._
 
@@ -158,7 +154,72 @@ _asset bundle중에 공통 리소스를 잘 관리하여 따로 패키징 해야
 </br>
 ##유니티 코드 최적화
 
+* 가능하면 `Update()`쓰지 말아, **Event-driven programming** 권장
+* `foreach` 쓰지 말아, `GC` 쌓일 거니까
+* 하나의 오브젝트에 걸린 **script**는 적을 수록 해야 함
+* `DontDestroyOnLoad`아닌 오브젝트는 가능하면 **Single-instance** 쓰지 말아, `Event`,`System.Action<T>`, `Delegate`등 밥법 이용
+* **Static variable** 꼭 필요할 때만 
+
 ##Code Style
+
+> [Raywenderlich's c sharp style guide](https://github.com/raywenderlich/c-sharp-style-guide)
+
+####Class & Interface
+
+파스칼표기법(PascalCase). 예, `RadialSlider`
+
+####Method
+
+파스칼표기법(PascalCase). 예, `DoSomething()`
+
+####Fields
+
+카멜표기법(camelCase). 예,
+
+```
+public class MyClass 
+{
+    public int m_publicField;
+    int m_packagePrivate;
+    private int m_private;
+    protected int m_protected;
+}
+```
+
+#####BAD:
+
+`private int _myPrivateVariable`
+
+#####GOOD:
+
+`private int m_privateVariable`
+
+Static fields or ReadOnly Variable are the exception and should be written in PascalCase:
+
+``` c sharp
+public static string KEY_IS_EXIST_DB = "is_exist_db";
+
+readonly string KEY_IS_EXIST_DB = "is_exist_db";
+```
+
+####Event, Delegate, Action\<T>
+
+`private CALL_BACK d_msgDelegate;`
+
+####Parameters
+
+카멜표기법(camelCase)
+
+#####BAD:
+
+`void DoSomething(Vector3 Location)`
+
+`void DoSomething(Vector3 l)`
+
+#####GOOD:
+
+`void DoSomething(Vector3 location)`
+
 
 
 </br>
