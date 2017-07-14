@@ -1,20 +1,20 @@
 # Unity Development Style Guide
 
-##유니티 리소스 최적화
+## 유니티 리소스 최적화
 
-###유니티에 대한 최적화가 크게 3가지로 나눌 수 있음:
+### 유니티에 대한 최적화가 크게 3가지로 나눌 수 있음:
 1.	메모리  
 2. 앱 파일 크기 - (ipa, apk)
 3. 앱 설치 필요한 하드 공간
 
-###메모리 소유 줄리기:
+### 메모리 소유 줄리기:
 1. texture
 2. audio
 3. font
 
 _메모리를 가장 많이 쓰는 리소소들임._
 
-###Texture:
+### Texture:
 * **size**
 	*	9 patch png
 	* 	pot기준 가능하도록 맞춤
@@ -50,7 +50,7 @@ pot란 가로랑 세로 길이 2의 제곱인 정사각형 이미지이다. 예 
 	
 	>format에 따라 메모리 비교: &lt;http://unching-star.hatenablog.jp/entry/2013/06/24/095510
 	
-	####rgb & alpha 분리시킨 pvr4bits 테스트 결과:
+	#### rgb & alpha 분리시킨 pvr4bits 테스트 결과:
 	*	RGBA32, RGBA16, PVR4, split alpha channel with pvr4는 iOS에 많이 쓰이는 포멧임.
 		![](https://raw.githubusercontent.com/DanieWng/UnityNote/master/sceneshot/Mar-21-2017%2010-27-27.gif)
 	
@@ -99,7 +99,7 @@ pot란 가로랑 세로 길이 2의 제곱인 정사각형 이미지이다. 예 
 </br>
 </br>
 
-###특수 폴더:
+### 특수 폴더:
 
 * Assets/Resources 
 * Assets/StreamingAssets 
@@ -144,7 +144,7 @@ _asset bundle중에 공통 리소스를 잘 관리하여 따로 패키징 해야
 
 </br>
 </br>
-##Unity로 개발한 ipa파일에서 리소스를 가져오기
+## Unity로 개발한 ipa파일에서 리소스를 가져오기
 1.	ipa파일 다운받기
 2.	뒤 파일 포멧 이름은 zip로 변경
 3. 압축 풀기
@@ -152,7 +152,7 @@ _asset bundle중에 공통 리소스를 잘 관리하여 따로 패키징 해야
 
 </br>
 </br>
-##유니티 코드 최적화
+## 유니티 코드 최적화
 
 * 가능하면 `Update()`, `FixedUpdate()`, `LateUpdate `등 쓰지 말아, **Event-driven programming** 권장
 * `foreach` 쓰지 말아, `GC` 쌓일 거니까
@@ -167,19 +167,19 @@ _asset bundle중에 공통 리소스를 잘 관리하여 따로 패키징 해야
 
 > [Unity中的优化技术](http://blog.csdn.net/candycat1992/article/details/42127811)
 
-##Code Style
+## Code Style
 
 > [Raywenderlich's c sharp style guide](https://github.com/raywenderlich/c-sharp-style-guide)
 
-####Class & Interface
+#### Class & Interface
 
 파스칼표기법(PascalCase). 예, `RadialSlider`
 
-####Method
+#### Method
 
 파스칼표기법(PascalCase). 예, `DoSomething()`
 
-####Fields
+#### Fields
 
 카멜표기법(camelCase). 예,
 
@@ -211,7 +211,7 @@ readonly string KEY_IS_EXIST_DB = "is_exist_db";
 
 ---
 
-####Event, Delegate, Action\<T>
+#### Event, Delegate, Action\<T>
 
 1. **Delegate**
 	
@@ -256,7 +256,7 @@ readonly string KEY_IS_EXIST_DB = "is_exist_db";
 
 ---
 
-####Parameters
+#### Parameters
 
 카멜표기법(camelCase)
 
@@ -272,7 +272,7 @@ readonly string KEY_IS_EXIST_DB = "is_exist_db";
 
 ---
 
-####Comment
+#### Comment
 
 > **C# XML Documentation Comments**
 > 
@@ -344,9 +344,9 @@ class A
 </br>
 </br>
 
-##Version Managment
+## Version Managment
 
-####Naming
+#### Naming
 
 * In Dev: `alpha` + `version code` + `fixed num`
 
