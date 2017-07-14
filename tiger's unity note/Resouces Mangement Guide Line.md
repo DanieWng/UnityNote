@@ -1,13 +1,14 @@
 
-#Resouces Mangement Guide Line
+<h1>Resouces Mangement Guide Line
 
 
-##아이콘 제작
+<h2>아이콘 제작</h2>
+
 * 1536x1536 사이즈로 권장 (iOS11 기준)
 
 > [Apple Developer Human Interface Guideline](https://developer.apple.com/design/)
 
-##Naming
+<h2>Naming</h2>
 
 * **영어**, **숫자**, **`_`**만 이용 가능
 * 모두 영어 글자는 **소문자**만 가능
@@ -19,9 +20,9 @@
 * `()`, `{}`, `[]`, `#`등 특수 기호들 **안됨**
 * 카테고리 적용할 있는 경우에 기획서대로 적용하거나 파악안되시면 개발자한테 문의 바람
 
-##업데이트 경우
+<h2>업데이트 경우</h2>
 
-1.	asana에서 **task** 추가해 주세요. 해당하실 분한테 **assgin** 설정
+1. asana에서 **task** 추가해 주세요. 해당하실 분한테 **assgin** 설정
 2. 업데이트 내용을 적어 주세요.
 	* **파일 경로**
 	* 파일은 이전 파일들이랑 같이 있는 경우에 **파일 이름**도 적어주셔야 합니다.
