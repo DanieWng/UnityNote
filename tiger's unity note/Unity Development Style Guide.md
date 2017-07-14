@@ -154,11 +154,18 @@ _asset bundle중에 공통 리소스를 잘 관리하여 따로 패키징 해야
 </br>
 ##유니티 코드 최적화
 
-* 가능하면 `Update()`쓰지 말아, **Event-driven programming** 권장
+* 가능하면 `Update()`, `FixedUpdate()`, `LateUpdate `등 쓰지 말아, **Event-driven programming** 권장
 * `foreach` 쓰지 말아, `GC` 쌓일 거니까
 * 하나의 오브젝트에 걸린 **script**는 적을 수록 해야 함
 * `DontDestroyOnLoad`아닌 오브젝트는 가능하면 **Single-instance** 쓰지 말아, `Event`,`System.Action<T>`, `Delegate`등 밥법 이용
-* **Static variable** 꼭 필요할 때만 
+* **Static variable** 꼭 필요할 때만
+* **전역 변수**들은 한 스프라이트에 묶음
+* **전역 메소드**들은 한 스프라이트에 묶음
+
+
+> [Unity开发技巧](http://blog.csdn.net/candycat1992/article/details/24884667)
+
+> [Unity中的优化技术](http://blog.csdn.net/candycat1992/article/details/42127811)
 
 ##Code Style
 
@@ -186,11 +193,11 @@ public class MyClass
 }
 ```
 
-#####BAD:
+* **BAD:**
 
 `private int _myPrivateVariable`
 
-#####GOOD:
+* **GOOD:**
 
 `private int m_privateVariable`
 
@@ -202,25 +209,156 @@ public static string KEY_IS_EXIST_DB = "is_exist_db";
 readonly string KEY_IS_EXIST_DB = "is_exist_db";
 ```
 
+---
+
 ####Event, Delegate, Action\<T>
 
-`private CALL_BACK d_msgDelegate;`
+1. **Delegate**
+	
+	* **delegate** 함수 생언: `Something` + `Event `
+	
+	* **event** 변수 생언: `d_` +  `something` + `Delegate`
+
+	* **callback** 함수 생언: `SenderClassName` + `Something` + `EventHandler`
+	
+	Sender.cs
+	
+	```
+	public void SomeThingEvent();
+	private SomeThingEvent d_someThingDelegate;
+	```
+	
+	Handler.cs
+	
+	```
+	void SenderSomeThingEventHandler()
+	{
+		
+	}
+	```
+	
+2. **Action\<T>**
+
+	Sender.cs
+
+	```
+	private System.Action<string> d_msgDelegate;
+	```
+	
+	Handler.cs
+	
+	```
+	void SenderMessageEventHandler(String msg)
+	{
+	
+	}
+	```
+
+---
 
 ####Parameters
 
 카멜표기법(camelCase)
 
-#####BAD:
+* **BAD:**
 
-`void DoSomething(Vector3 Location)`
+	`void DoSomething(Vector3 Location)`
 
-`void DoSomething(Vector3 l)`
+	`void DoSomething(Vector3 l)`
 
-#####GOOD:
+* **GOOD**
 
-`void DoSomething(Vector3 location)`
+	`void DoSomething(Vector3 location)`
 
+---
 
+####Comment
+
+> **C# XML Documentation Comments**
+> 
+> [Recommended Tags for Documentation Comments](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/recommended-tags-for-documentation-comments)
+> 
+> [C# 文档注释规范](http://www.cnblogs.com/cccc/archive/2009/08/19/1549866.html)
+
+* **Class**
+
+   ```
+   	/// <summary>
+	/// ###Class Name
+	/// </summary>
+   class XXX
+   {
+   
+   }
+   
+   ```
+
+* **Method**
+
+	```
+	/// <summary>
+	/// ###Method Name
+	/// </summary>
+	/// <param name="fieldName">###Description</param>
+	/// <param name="baseValue">###Description </param>
+	/// <param name="curve">###Description </param>
+	void DoSomeThing1(int a, int b)
+	{
+	
+	}
+	```
+
+* **Fields**
+	
+	```
+	// ###Description
+	int m_var1;
+	
+	```
+
+> None extensions, may use C++ Comment Style
+
+```
+
+/**
+	###Class Name
+	###Description
+ */
+class A
+{
+	// ###For SomeThing
+	int m_varA;
+
+	/*
+		###Method Name
+		@params ###Param Name ###For SomeThing
+	 */
+	void DoSomeThing(int va1)
+	{
+	
+	}
+}
+
+```
+
+</br>
+</br>
+
+##Version Managment
+
+####Naming
+
+* In Dev: `alpha` + `version code` + `fixed num`
+
+	예: 
+	1. `0.1.3`버전에 대한 2차 비드백 수정 경우 -> **alpha 0.1.3 f2**
+	2. 따라서 **alpha 0.1.3**는 아직 해당 비드팩 없는 버전이나 이전 비드팩 수정 완료 & 새 내용 추가된 경우
+
+* In Test: `beta` + `version code` + `fixed num`
+
+* In Release: `release` + `version code`
+
+> 만약에 파일 명은 **뛰어쓰기**랑 **점**을 입력 안 될 경우에 **under line**`_`로 대신 
 
 </br>
 </br>
