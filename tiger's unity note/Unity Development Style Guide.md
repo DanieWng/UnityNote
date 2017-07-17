@@ -144,14 +144,17 @@ _asset bundle중에 공통 리소스를 잘 관리하여 따로 패키징 해야
 
 </br>
 </br>
+
 ## Unity로 개발한 ipa파일에서 리소스를 가져오기
-1.	ipa파일 다운받기
-2.	뒤 파일 포멧 이름은 zip로 변경
+
+1. ipa파일 다운받기
+2. 뒤 파일 포멧 이름은 zip로 변경
 3. 압축 풀기
 4. unity studio로 압축한 패키지를 읽기
 
 </br>
 </br>
+
 ## 유니티 코드 최적화
 
 * 가능하면 `Update()`, `FixedUpdate()`, `LateUpdate `등 쓰지 말아, **Event-driven programming** 권장
